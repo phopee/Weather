@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext {
+        kotlin_version = '1.7.0'
+        kotlin_coroutines = '1.6.4'
+        app_compat_ver = "1.4.1"
+        gradle_plugin_ver = '1.7.10'
+        nav_version = '2.5.3'
+        android_material_ver = "1.5.0"
+        room_version = "2.5.0-alpha02"
+        paging_version = "3.1.1"
+        desugar_ver = '1.1.6'
+        fragment_ver = '1.5.2'
+        card_view_ver = "1.0.0"
+        desugar_jdk = '1.1.1'
+        live_data_ver = '2.4.1'
+        build_gradle_ver = '7.3.1'
+        data_binding_ver = '3.1.4'
+        compose_ver = '1.0.0-beta02'
+        lifec_compose_ver = '1.0.0-alpha03'
+        work_man_version = "2.7.1"
+        android_core_ver = "1.5.0"
+        annotation_ver = '1.4.0'
+        junit_ver = "4.13.2"
+        core_ktx_ver = '1.8.0'
+        appcompat_ver = '1.5.0'
+        constraint_layout_ver = '2.0.0'
+        local_broadcast_manager_ver = "1.1.0"
+        paging_compose_version = '1.0.0-alpha16'
+        sqlite_ktx_ver = "2.2.0"
+        lifecycle_runtime_ktx_ver = "2.5.0-alpha02"
+        okhttp3_logging_interceptor_ver = "5.0.0-alpha.9"
+        room_paging = "2.5.0-alpha03"
+        retrofit_ver = "2.9.0"
+        android_material_ver = "1.6.1"
+        lifecycle_version = '2.5.1'
+        glide_version = "4.13.2"
+        hilt_version = '2.44'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$build_gradle_ver"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$gradle_plugin_ver"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+plugins {
+    id 'com.android.application' version '7.4.0-beta02' apply false
+    id 'com.android.library' version '7.4.0-beta02' apply false
+    id("com.google.dagger.hilt.android") version "2.44" apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+}

@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+android {
+    namespace 'com.example.weather'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.weather"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(':core:commons')
+    implementation project(':core:model')
+    implementation "androidx.appcompat:appcompat:$appcompat_ver"
+    implementation "androidx.core:core-ktx:$core_ktx_ver"
+    api "androidx.constraintlayout:constraintlayout:$constraint_layout_ver"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    androidTestImplementation 'junit:junit:4.12'
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+    api "androidx.fragment:fragment-ktx:$fragment_ver"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    testImplementation("androidx.room:room-testing:$room_version")
+    implementation("androidx.room:room-paging:$room_paging")
+    implementation 'com.google.android.material:material:1.7.0-alpha03'
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "androidx.cardview:cardview:$card_view_ver"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:$local_broadcast_manager_ver"
+    implementation "androidx.work:work-runtime-ktx:$work_man_version"
+    implementation "androidx.work:work-multiprocess:$work_man_version"
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_ver"
+    implementation "com.google.android.material:material:$android_material_ver"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation 'javax.inject:javax.inject:1'
+
+}
