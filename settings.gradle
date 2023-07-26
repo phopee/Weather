@@ -15,6 +15,8 @@ dependencyResolutionManagement {
 rootProject.name = "Weather"
 include ':app'
 include ':core'
-include ':core:commons'
 include ':core:network'
 include ':core:model'
+include ':core:commons'
+include ':core:data'
+include ':core:domain'

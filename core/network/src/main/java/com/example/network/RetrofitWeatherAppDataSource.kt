@@ -1,26 +1,34 @@
 package com.example.network
 
+import com.example.commons.Constants
+import com.example.network.api.ITimeZoneApi
+import com.example.network.api.IWeatherApiClient
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-private const val WEATHER_BASE_URL = "https://api.open-meteo.com/v1/"
-private const val TIME_ZONE_API_KEY = "UC22B01YHHB5"
-private const val TIME_ZONE_BASE_URL = "http://api.timezonedb.com/v2.1/"
 
-@Singleton
-class RetrofitWeatherAppDataSource {
-    val weatherAPI: IWeatherApiClient by lazy {
 
-        return@lazy Retrofit.Builder()
-            .baseUrl(WEATHER_BASE_URL)
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+    @Provides
+    @Singleton
+    fun provideWeatherApi(): IWeatherApiClient{
+        return Retrofit.Builder()
+            .baseUrl(Constants.WEATHER_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(IWeatherApiClient::class.java)
     }
-    val timezoneAPI: ITimeZoneApi by lazy {
-
-        return@lazy Retrofit.Builder()
-            .baseUrl(TIME_ZONE_BASE_URL)
+    @Provides
+    @Singleton
+    fun provideTimeZoneApi(): ITimeZoneApi {
+        return Retrofit.Builder()
+            .baseUrl(Constants.TIME_ZONE_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ITimeZoneApi::class.java)
     }
